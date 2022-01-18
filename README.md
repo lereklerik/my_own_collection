@@ -251,7 +251,7 @@ if __name__ == '__main__':
 
 #### 4. Проверьте module на исполняемость локально.
 
-* Добавила файл [`args.json'](ansible/args.json):
+* Добавила файл `args.json`:
 
 ```json
 {
@@ -452,7 +452,7 @@ my_test:
       ansible_connection: ssh
 ```
 
-* `[site.yml](my_own_namespace/yandex_cloud_elk/site.yml)`:
+* [site.yml](my_own_namespace/yandex_cloud_elk/site.yml):
 ```yaml
 ---
 - name: Test my_own_module in yandex.cloud
