@@ -118,7 +118,7 @@ $ cd lib/ansible/modules/
 (venv) netology@netology:~/Projects/my_own_collection/ansible/lib/ansible/modules$ touch my_own_module.py
 (venv) netology@netology:~/Projects/my_own_collection/ansible/lib/ansible/modules$ vim my_own_module.py 
 ```
-* Файл: [my_own_module.py](ansible/lib/ansible/modules/my_own_module.py)
+* Файл: [my_own_module.py](my_own_namespace/yandex_cloud_elk/plugins/modules/my_own_module.py)
 
 #### 3. Заполните файл в соответствии с требованиями ansible так, чтобы он выполнял основную задачу: module должен создавать текстовый файл на удалённом хосте по пути, определённом в параметре path, с содержимым, определённым в параметре content.
 
