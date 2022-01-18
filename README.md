@@ -516,3 +516,86 @@ ubuntu-ansible             : ok=2    changed=0    unreachable=0    failed=0    s
 #### 12. Заполните всю документацию по collection, выложите в свой репозиторий, поставьте тег 1.0.0 на этот коммит.
 
 * Документация [тут](my_own_namespace/yandex_cloud_elk/README.md)
+
+#### 13. Создайте .tar.gz этой collection: ansible-galaxy collection build в корневой директории collection.
+
+```shell
+netology@netology:~/Projects/my_own_collection/my_own_namespace/yandex_cloud_elk$ ansible-galaxy collection build
+Created collection for my_own_namespace.yandex_cloud_elk at /home/netology/Projects/my_own_collection/my_own_namespace/yandex_cloud_elk/my_own_namespace-yandex_cloud_elk-1.0.0.tar.gz
+```
+![targz](pic/targz.png)
+
+#### 14. Создайте ещё одну директорию любого наименования, перенесите туда single task playbook и архив c collection.
+#### 15. Установите collection из локального архива: ansible-galaxy collection install <archivename>.tar.gz
+
+```shell
+netology@netology:~/Projects$ mkdir test_targz
+netology@netology:~/Projects$ cd test_targz/
+netology@netology:~/Projects/test_targz$ ls
+my_own_namespace-yandex_cloud_elk-1.0.0.tar.gz
+netology@netology:~/Projects/test_targz$ ansible-galaxy collection install my_own_namespace-yandex_cloud_elk-1.0.0.tar.gz -p collections
+Starting galaxy collection install process
+[WARNING]: The specified collections path '/home/netology/Projects/test_targz/collections' is not part of the configured Ansible
+collections paths '/home/netology/.ansible/collections:/usr/share/ansible/collections'. The installed collection won't be picked up
+in an Ansible run.
+Process install dependency map
+Starting collection install process
+Installing 'my_own_namespace.yandex_cloud_elk:1.0.0' to '/home/netology/Projects/test_targz/collections/ansible_collections/my_own_namespace/yandex_cloud_elk'
+my_own_namespace.yandex_cloud_elk:1.0.0 was installed successfully
+```
+
+```shell
+netology@netology:~/Projects/test_targz$ tree
+.
+├── collections
+│   └── ansible_collections
+│       └── my_own_namespace
+│           └── yandex_cloud_elk
+│               ├── docs
+│               ├── FILES.json
+│               ├── inventory
+│               │   └── hosts.yml
+│               ├── MANIFEST.json
+│               ├── plugins
+│               │   ├── modules
+│               │   │   └── my_own_module.py
+│               │   └── README.md
+│               ├── README.md
+│               ├── roles
+│               │   └── my_role
+│               │       ├── defaults
+│               │       │   └── main.yml
+│               │       ├── files
+│               │       ├── handlers
+│               │       │   └── main.yml
+│               │       ├── meta
+│               │       │   └── main.yml
+│               │       ├── README.md
+│               │       ├── tasks
+│               │       │   └── main.yml
+│               │       ├── templates
+│               │       ├── tests
+│               │       │   ├── inventory
+│               │       │   └── test.yml
+│               │       └── vars
+│               │           └── main.yml
+│               └── site.yml
+├── inventory
+│   └── hosts.yml
+├── my_own_namespace-yandex_cloud_elk-1.0.0.tar.gz
+└── site.yml
+
+19 directories, 18 files
+```
+
+#### 16. Запустите playbook, убедитесь, что он работает.
+
+![extract](pic/extract.png)
+
+* Проверка наличия файла: 
+```shell
+netology@collection-01:~$ cat /tmp/test_remote_02.txt 
+Test module in task
+Hello, netology!
+
+```
