@@ -318,7 +318,7 @@ Checking multiline text
 
 #### 5. Напишите single task playbook и используйте module в нём.
 
-* [site.yml](ansible/site.yml):
+* site.yml:
 
 ```yaml
 ---
@@ -424,14 +424,14 @@ is a rapidly changing source of code and can become unstable at any point.
 - Role my_role was created successfully
 ```
 
-* `[defaults/main.yml](my_own_namespace/yandex_cloud_elk/roles/my_role/defaults/main.yml)`
+* [defaults/main.yml](my_own_namespace/yandex_cloud_elk/roles/my_role/defaults/main.yml):
 
 ```yaml
 ---
 test_path: "/tmp/test_remote_01.txt"
 test_content: "Test module in task\nHello, netology!\n"
 ```
-* `[tasks/main.yml](my_own_namespace/yandex_cloud_elk/roles/my_role/tasks/main.yml)`:
+* [tasks/main.yml](my_own_namespace/yandex_cloud_elk/roles/my_role/tasks/main.yml):
 
 ```yaml
 ---
@@ -441,7 +441,7 @@ test_content: "Test module in task\nHello, netology!\n"
     content: "{{ test_content }}"
 ```
 
-* `[inventory/hosts.yml](my_own_namespace/yandex_cloud_elk/inventory/hosts.yml)`:
+* [inventory/hosts.yml](my_own_namespace/yandex_cloud_elk/inventory/hosts.yml):
 
 ```yaml
 ---
