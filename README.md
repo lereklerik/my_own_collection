@@ -599,3 +599,7 @@ Test module in task
 Hello, netology!
 
 ```
+
+#### 17. В ответ необходимо прислать ссылку на репозиторий с collection
+
+* [Ссылка](https://github.com/lereklerik/my_own_namespace/tree/master/yandex_cloud_elk#ansible-collection---my_own_namespaceyandex_cloud_elk) на репозиторий с коллекцией
