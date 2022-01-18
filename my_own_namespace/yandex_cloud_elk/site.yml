@@ -1,0 +1,6 @@
+---
+- name: Test my_own_module in yandex.cloud
+  hosts:
+    - ubuntu-ansible
+  roles:
+    - my_role
